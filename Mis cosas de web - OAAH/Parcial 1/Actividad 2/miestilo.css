@@ -1,0 +1,50 @@
+h1{
+    text-align: center;
+}
+.cuadroizquierda{
+    border-radius: 5px;
+    width: 5 px;
+    margin-right: 100rem;
+    padding: 1rem;
+    border: 2px solid black;
+    background-color: greenyellow;
+}
+ul>li:nth-child(2n){
+    color: red;
+}
+.cuadroderecha{
+    color: white;
+    width: 15vw;
+    padding: 1rem;
+    margin-left: auto;
+    background-color: blueviolet;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+ol>li:nth-child(3n){
+    background-color: greenyellow;
+    list-style-type: none;
+}
+.cuadrorojo{
+    background-color: brown;
+    margin: 0 auto;
+    border: 4px double black;
+    width: 40vw;
+    height: 30vh;
+    padding: 8rem;
+    border-radius: 10px;
+}
+.cuadroamarillo{
+    background-color: tomato;
+    /* margin: 6rem; */
+    border: 2px dashed white;
+    padding: 5rem;
+    border-radius: 10px;
+}
+.cuadroazul{
+    text-align: center;
+    background-color: aqua;
+    /* margin: 8rem; */
+    border: 2px solid blue;
+    border-radius: 10px;
+}

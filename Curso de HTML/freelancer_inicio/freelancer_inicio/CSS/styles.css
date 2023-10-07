@@ -1,0 +1,282 @@
+:root{/*Es un pseudo selector, funciona para guardar datos que vayamos a usar muchas veces*/ 
+    --blanco:#ffffff;
+    --oscuro:#212121;
+    --primario: #ffc107;
+    --secundario: #0097a7;
+    --gris: #757575;
+    --grisClaro: #dfe9f3;
+
+    --fuente-principal: 3.8rem;
+}
+
+/*Globales*/
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+    scroll-snap-type: y mandatory;
+}
+
+/*Scroll snap*/
+.servicios, .navegacion-principal, .formulario{
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
+*, *:before, *::after{ /* *Selector universal; , aplicar tambien para; before y after son pseudoelementos, NO existen en HTML*/
+    box-sizing: inherit;
+}
+
+body{
+    font-size: 16px; /* 1Rem = 10px */
+    font-family:'Krub', sans-serif; /*Fuente de Google Fonts, revisar en liberias de .html*/
+    background-image: linear-gradient(to top, var(--grisClaro) 0%, var(--blanco) 100%); /*Degradado, hacia a donde va, de que color, en que parte del degradado llega al segundo color */
+}
+
+.contenedor{
+    max-width: 120rem;
+    margin: 0 auto; /*TopBotton y RightLeft*/
+    /* O tambien como manecillas de reloj, Top, R, B, L*/
+    /*O uno por uno*/
+}
+
+.boton{
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 3rem;
+    margin-top: 1rem;
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: .5rem;
+    width: 90%;
+    text-align: center;
+    border: none;
+}
+
+@media(min-width: 768px) {
+    .boton{
+        width: auto;
+    }
+}
+
+.boton:hover{
+    cursor:pointer;
+}
+
+.sombra{
+    /*-webkit-box-shadow: 0px 5px 15px 0px rgba(79,79,79,0.54);
+    -moz-box-shadow: 0px 5px 15px 0px rgba(79,79,79,0.54);*/
+    box-shadow: 0px 5px 15px 0px rgba(79,79,79,0.54);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+/*Tipografia*/
+h1{
+    font-size: 3.8rem;
+}
+h2{
+    font-size: 2.5rem;
+}
+h3{
+    font-size: 1.8rem;
+}
+h1,h2,h3{
+    text-align: center;
+}
+
+/*color: var(--primario); // Puede ser directo o poner var(propiedad)*/
+/*font-family:'Krub', sans-serif;*/
+/*font-weight: 400; // 400 = normal/700 = bold*/ 
+
+/*Titulos*/
+.titulo span{
+    font-size: 2rem;
+}
+
+/*Utilidades*/
+.w-sm-100{
+    width: 100%;
+}
+@media(min-width: 768px) {
+    .w-sm-100{
+        width: auto;
+    }
+}
+.flex{
+    display: flex;
+}
+.alinear-derecha{
+    justify-content: flex-end;
+    margin-top: 30px;
+    margin-bottom: -15px;
+}
+
+/*Navegacion principal*/
+.nav_bg{
+    background-color: var(--secundario);
+} 
+
+.navegacion-principal{
+    display: flex;
+    flex-direction: column;
+
+}
+
+/*Medidas
+ Para celular 480px
+ Para Tablet 768px
+ Para laptop 1140px
+ Para pc 1440px o 1400px
+*/
+
+@media(min-width: 768px) { /*Medidas para tablet*/
+    .navegacion-principal{
+        flex-direction: row;
+        justify-content: space-between; /*JustifyContent se utiliza para justificar horizontalmente*/
+    } 
+}
+
+.navegacion-principal a{
+    color: var(--blanco);
+    text-decoration: none; /*Si lo cambias en inspector, puedes ver en tiempo real*/
+    font-size: 2rem;
+    font-weight: 700; /*Este o negritas es lo mismo, se lo estamos aplicando a la fuente*/
+    padding: 1rem; /*Cuando tienes un valor, es lo mismo como si lo tuvieras 4 veces*/
+}
+
+.navegacion-principal a:hover{
+    background-color: var(--primario);
+    color: var(--oscuro);
+}
+
+/*Imagen hero*/
+.hero{
+    background-image: url(../img/hero.jpg);/*../ = salir de la carpeta donde estas, aqui estamos en carpeta css y tenemos que salirnos de css y meternos a img*/
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 45rem;
+    position: relative; /*El padre tiene que tener posicion relativa para que el hijo tenga posicion absoluta*/
+    margin-bottom: 2rem;
+}
+
+.contenido-hero{
+    position: absolute;
+    background-color: rgba(0,0,0, .5); /*Anterior*/
+    background-color: rgb(0,0,0/70%); /*Nueva*/
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column; /*Si cambiamos row por column, justify alinea horizontalmente*/
+    align-items: center; /*Alinear horizontalmente*/
+    justify-content: center; /*Alinear verticalmente*/
+}
+
+.contenido-hero h2, .contenido-hero p{
+    color: var(--blanco);
+}
+
+.contrenido-hero .ubicacion{
+    display: flex;
+    align-items: flex-end;
+}
+
+/*Servicios*/
+@media(min-width: 768px) {
+    .servicios{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /*Grid es una tabla, row / columns*/ /*grid-template-row*/
+        column-gap: 1rem; /*Separacion entre las columnas*/
+    }
+}
+
+.servicio{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.servicio h3{
+    color: var(--secundario);
+    font-weight: normal;
+}
+
+.servicio p{
+    line-height: 2;
+}
+.servicio .iconos{
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--primario);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/*Contacto*/
+.formulario{
+    background-color: var(--gris);
+    width: min(60rem, 100%); /*Utiliza el valor mas pequeno en pixeles, es como un mq*/
+    margin: 0 auto; /*Utilizar para formularios donde el padre no tenga display flex*/
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.formulario fieldset{
+    border: none; 
+}
+
+.formulario .legend{
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color:var(--primario);
+}
+
+@media(min-width: 768px) {
+    .contenedor-campos{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto 20rem;
+        column-gap: 1rem;
+    }
+
+    .campo:nth-child(3),.campo:nth-child(4){
+        grid-column: 1 / 3;
+    }
+}
+
+
+.campo{
+    margin-bottom: 1rem;
+}
+
+.campo label{
+    color: var(--blanco);
+    font-weight: bold;
+    margin-bottom: .5rem;
+    display: block;
+}
+
+.campo textarea{
+    height: 20rem;
+}
+
+.input-text{
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+    border-radius: .5rem;
+}
+
+/*Footer*/
+.footer{
+    text-align: center;
+}

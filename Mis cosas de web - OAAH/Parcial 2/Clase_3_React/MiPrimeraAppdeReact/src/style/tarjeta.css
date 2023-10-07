@@ -1,0 +1,15 @@
+.card{
+    background-color: white;
+    width: 250px;
+    box-shadow: 3px 10px 10px rgb(45, 45, 45);
+    margin: 1rem;
+    border-radius: 10px;
+}
+
+.card{
+    width: 100%;
+}
+
+.card h2,p{
+    padding: 0.25rem;
+}

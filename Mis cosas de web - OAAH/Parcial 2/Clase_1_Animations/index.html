@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Animations</title>
+</head>
+
+<style>
+    :root{
+        --widthPadre: 50rem;
+    }
+    .container{
+        width: var(--widthPadre);
+        height: 50rem;
+    
+        background-color: rgb(11, 11, 255);
+    }
+
+    .cuadrito{
+        width: 50px;
+        height: 50px;
+        /*Las transiciones deben ir en el elemento afectado*/
+        transition: all ease-in-out 500ms;
+        background-color: rgb(9, 255, 9);
+        animation: cuadritoVueltas 1s linear forwards infinite alternate;
+        /*animation-fill-mode: forwards;
+        animation-iteration-count: infinite;
+        animation-duration: alternate;*/
+        animation-delay: 1s;
+    }
+    
+    .container:hover .cuadrito{
+        background-color: red;
+
+        /*transform: translate(calc(var(--widthPadre) - 50px )); /*100% de si mismo, no del padre*/
+        /*scale: 2;
+        rotate: 1turn;*/
+    }
+
+    @keyframes cuadritoVueltas{
+        33%{
+            transform: translateY(50rem);
+        }
+        66%{
+            transform: translate(calc(var(--widthPadre) - 50px), 450px);
+        }
+        100%{
+            transform: translate(calc(var(--widthPadre) - 50px)) rotate(1turn) scale(2);
+        }
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="cuadrito"></div>
+    </div>
+</body>
+</html>
