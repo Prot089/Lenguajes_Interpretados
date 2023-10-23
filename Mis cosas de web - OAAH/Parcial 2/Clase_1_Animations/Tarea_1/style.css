@@ -1,0 +1,24 @@
+.marco{
+    border: 2px solid black;
+    text-align: center;
+}
+
+.titulo1{
+    animation: aparecer;
+    animation-duration: 2s;
+}
+
+.parrafo{
+    animation: aparecer;
+    animation-duration: 3s;
+}
+
+.titulo2{
+    animation: aparecer;
+    animation-duration: 4s;
+}
+
+@keyframes aparecer{
+  from{color: white; transform: 20rem;}
+  to {color: black; transform: 0rem;}
+}
