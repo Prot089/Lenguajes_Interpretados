@@ -67,9 +67,13 @@ function doThree(){
   world.addBody(planoBody);
   planoBody.quaternion.setFromEuler(-90 * (Math.PI/180),0,0);
 
-  const arregloEsferasM: { position: { copy: (arg0: any) => void; }; }[] | THREE.Mesh<THREE.SphereGeometry, THREE.MeshPhongMaterial, THREE.Object3DEventMap>[] = []
-  const arregloEsferasB: { position: any; }[] = []
 
+  //Arreglos de esferas Mesh y Body
+  const arregloEsferasM: { position: { copy: (arg0: any) => void; }; }[] | THREE.Mesh<THREE.SphereGeometry, THREE.MeshPhongMaterial, THREE.Object3DEventMap>[] = []
+  const arregloEsferasB: any[] = []
+  let waitTimer = 0;
+  let Nparticulas = 50;
+  let timer2 = 50;
 
   
   //esferaBody.collisionResponse = false; //Trigger
@@ -94,7 +98,7 @@ function doThree(){
       type: CANNON.Body.DYNAMIC
     })
 
-    esferaBody.velocity.set(1,20,0);
+    esferaBody.velocity.set(Math.random() * 20 - 10,20,Math.random() * 20 - 10);
     world.addBody(esferaBody);
     arregloEsferasB.push(esferaBody);
     scene.add(esfeMesh);
@@ -104,14 +108,27 @@ function doThree(){
   crearEsfera();
 
   function animate() {
+    const delta = clock.getDelta()
 
     world.step(physStep);
 
     planoMesh.position.copy(planoBody.position);
     planoMesh.quaternion.copy(planoBody.quaternion);
 
+    if(waitTimer <= 0 && Nparticulas >0){
+      waitTimer = 0.5
+      crearEsfera();
+      Nparticulas--;
+      timer2--;
+    }
+
+    waitTimer -= delta
+
     for (let index = 0; index < arregloEsferasM.length; index++) {
      arregloEsferasM[index].position.copy(arregloEsferasB[index].position);
+          if(timer2 == 0){
+            Nparticulas = 50;
+          }
     }
 
     controls.update();

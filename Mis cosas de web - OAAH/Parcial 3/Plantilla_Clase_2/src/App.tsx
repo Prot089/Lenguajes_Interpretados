@@ -121,7 +121,7 @@ function doThreeJS(){
   //const mousePosition = new THREE.Vector2();
   const mouseClick = new THREE.Vector2();
 
-  window.addEventListener('click', function(e){
+  cube.addEventListener('click', function(e){
     //obtenemos las coordenadas normalizadas (de -1 a 1)    
     // mouseClick.x =  ( e.clientX / window.innerWidth ) * 2 - 1;
     // mouseClick.y = - ( e.clientY / window.innerHeight ) * 2 + 1;
@@ -200,4 +200,3 @@ const App = () => {
 }
 
 export default App
-
